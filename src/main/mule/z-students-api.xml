@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="1a538d97-de41-4a4c-9b6f-7ab2b0ec1486" >
+		<http:listener-connection host="0.0.0.0" port="8081" />
+	</http:listener-config>
+	<flow name="z-students-apiFlow" doc:id="1aa6a044-a1f1-4c60-8724-5c73aaaeea0b" >
+		<http:listener doc:name="Listener" doc:id="73a07886-5908-4ea6-8460-73c0ec916e7e" config-ref="HTTP_Listener_config" path="/path"/>
+		<set-payload value="get some response" doc:name="Set Payload" doc:id="e19e046a-0f56-4b6f-96f7-ef49dbe434aa" />
+		<logger level="INFO" doc:name="Logger" doc:id="378e10bc-4792-49da-957e-f678aa3d3b29" />
+	</flow>
+</mule>
